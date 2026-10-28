@@ -1,0 +1,304 @@
+<!doctype html>
+<html lang="es" data-bs-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Pastelería Delicia · Tienda en línea</title>
+  <meta name="description" content="Tortas, panes, dulces y salados recién horneados. Arma tu pedido en línea en Pastelería Delicia.">
+  <meta name="theme-color" content="#fbf3f0">
+  <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+
+  <!-- Tipografía (Inter: la más cercana a SF Pro de Apple en Windows/Android) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- CSS de Bootstrap 6 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@6.0.0-alpha.1/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+        integrity="sha384-B/GM4XqrwHnWXNOWMbloTmrYXZg10cakYGmpfsR/bbzQ6JAJI4ihuyADKLnBgrCe"
+        crossorigin="anonymous">
+
+  <!-- Nuestros estilos (Liquid Glass), SIEMPRE después de Bootstrap -->
+  <link href="css/estilos.css" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Fondo de color que se ve "a través" del vidrio -->
+  <div class="fondo" aria-hidden="true">
+    <span class="mancha m1"></span>
+    <span class="mancha m2"></span>
+    <span class="mancha m3"></span>
+    <span class="mancha m4"></span>
+  </div>
+
+  <!-- ===================== MENÚ SUPERIOR: Navbar + Drawer ===================== -->
+  <header class="cabecera">
+    <nav class="navbar md:navbar-expand vidrio barra" aria-label="Navegación principal">
+      <div class="container-fluid">
+        <a class="navbar-brand marca" href="#inicio">
+          <img src="img/favicon.svg" alt="" width="30" height="30">
+          <span>Delicia</span>
+        </a>
+
+        <dialog class="drawer drawer-end menu-movil" id="menu" aria-labelledby="menuTitulo">
+          <div class="drawer-header">
+            <h5 class="drawer-title" id="menuTitulo">Menú</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="drawer" aria-label="Cerrar"></button>
+          </div>
+          <div class="drawer-body">
+            <ul class="navbar-nav md:mx-auto">
+              <li class="nav-item"><a class="nav-link" href="#catalogo" data-cerrar-menu>Catálogo</a></li>
+              <li class="nav-item"><a class="nav-link" href="#pedido" data-cerrar-menu>Torta personalizada</a></li>
+              <li class="nav-item"><a class="nav-link" href="#nosotros" data-cerrar-menu>Nosotros</a></li>
+            </ul>
+          </div>
+        </dialog>
+
+        <div class="d-flex align-items-center gap-2 acciones">
+          <!-- Modo claro / oscuro -->
+          <button class="btn-icon boton-vidrio" type="button" id="btnTema" aria-label="Cambiar a modo oscuro">
+            <svg class="icono-luna" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/></svg>
+            <svg class="icono-sol" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2.2M12 19.8V22M4.9 4.9l1.6 1.6M17.5 17.5l1.6 1.6M2 12h2.2M19.8 12H22M4.9 19.1l1.6-1.6M17.5 6.5l1.6-1.6"/></svg>
+          </button>
+
+          <!-- Carrito: abre el drawer #carrito -->
+          <button class="btn-solid theme-primary btn-carrito" type="button"
+                  data-bs-toggle="drawer" data-bs-target="#carrito" aria-controls="carrito">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 7h12l-1.2 10.2a2 2 0 0 1-2 1.8H9.2a2 2 0 0 1-2-1.8L6 7Z"/><path d="M9 7V6a3 3 0 0 1 6 0v1"/></svg>
+            <span class="d-none sm:d-inline">Carrito</span>
+            <span class="badge contador" id="contador" aria-label="productos en el carrito">0</span>
+          </button>
+
+          <!-- Hamburguesa (solo celular) -->
+          <button class="btn-icon navbar-toggler boton-vidrio" type="button" data-bs-toggle="drawer"
+                  data-bs-target="#menu" aria-controls="menu" aria-label="Abrir menú">
+            <span class="navbar-toggler-icon" aria-hidden="true"></span>
+          </button>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- ===================== PORTADA ===================== -->
+    <section class="portada" id="inicio">
+      <div class="container">
+        <div class="row align-items-center g-6">
+          <div class="col-12 lg:col-6">
+            <span class="chip vidrio">Recién horneado cada mañana en Huancayo</span>
+            <h1 class="titulo-portada">Dulzura,<br><span class="degradado">recién horneada.</span></h1>
+            <p class="bajada">Tortas, panes, dulces y salados hechos a mano. Elige, agrega al carrito y recógelo hoy mismo o recíbelo en casa.</p>
+            <div class="d-flex flex-wrap gap-3">
+              <a class="btn-solid theme-primary btn-lg boton-capsula" href="#catalogo">Ver catálogo</a>
+              <a class="btn-lg boton-capsula boton-vidrio" href="#pedido">Torta personalizada</a>
+            </div>
+            <p class="nota-descuento"><strong>10 % de descuento</strong> automático en compras mayores a <strong>S/ 100</strong>.</p>
+          </div>
+          <div class="col-12 lg:col-6">
+            <figure class="marco vidrio">
+              <img src="https://images.unsplash.com/photo-1559620192-032c4bc4674e?w=1100&q=75&auto=format&fit=crop"
+                   alt="Torta de frutos del bosque sobre una base de cerámica" width="1100" height="1100">
+              <figcaption class="flotante f1 vidrio"><span class="punto"></span> Abierto · 7:00 a 21:00</figcaption>
+              <figcaption class="flotante f2 vidrio">Tortas desde <strong>S/ 65</strong></figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== CATÁLOGO ===================== -->
+    <section class="seccion" id="catalogo">
+      <div class="container">
+        <div class="encabezado">
+          <div>
+            <p class="ceja">Catálogo</p>
+            <h2 class="titulo-seccion">Elige tus favoritos.</h2>
+          </div>
+          <label class="buscador vidrio" for="buscar">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m20 20-4.2-4.2"/></svg>
+            <input class="form-control" type="search" id="buscar" placeholder="Buscar torta, pan, empanada…" aria-label="Buscar productos" autocomplete="off">
+          </label>
+        </div>
+
+        <!-- Filtros por categoría: Nav pills (los genera tienda.js) -->
+        <div class="filtros-scroll">
+          <ul class="nav nav-pills vidrio" id="filtros" aria-label="Filtrar por categoría"></ul>
+        </div>
+        <p class="resultado" id="resultado" aria-live="polite"></p>
+
+        <!-- Grilla responsive: 1 → 2 → 3 → 4 columnas -->
+        <div class="row row-cols-1 sm:row-cols-2 lg:row-cols-3 xl:row-cols-4 g-5" id="productos"></div>
+        <div class="sin-resultados vidrio" id="sinResultados" hidden>
+          <p class="mb-1"><strong>Sin resultados</strong></p>
+          <p class="mb-0">Prueba con otra palabra o elige “Todos”.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== TORTA PERSONALIZADA ===================== -->
+    <section class="seccion" id="pedido">
+      <div class="container">
+        <div class="row g-6 align-items-start">
+          <div class="col-12 lg:col-5">
+            <p class="ceja">Pedido especial</p>
+            <h2 class="titulo-seccion">Tu torta,<br>a tu manera.</h2>
+            <p class="bajada">Cumpleaños, bodas, baby showers o graduaciones. Cuéntanos qué imaginas y te enviamos la cotización por WhatsApp.</p>
+            <ul class="beneficios">
+              <li><span>01</span> Diseño 100 % personalizado</li>
+              <li><span>02</span> Pide con 48 horas de anticipación</li>
+              <li><span>03</span> Delivery en Huancayo y El Tambo</li>
+            </ul>
+          </div>
+          <div class="col-12 lg:col-7">
+            <form class="formulario vidrio" id="formPedido" novalidate>
+              <div class="row g-4">
+                <div class="col-12 md:col-6">
+                  <label for="nombre" class="form-label">Nombre</label>
+                  <input class="form-control" id="nombre" name="nombre" autocomplete="name" required minlength="3" placeholder="Tu nombre">
+                </div>
+                <div class="col-12 md:col-6">
+                  <label for="celular" class="form-label">Celular</label>
+                  <input class="form-control" id="celular" name="celular" inputmode="numeric" maxlength="9" placeholder="9XXXXXXXX" required pattern="9[0-9]{8}">
+                </div>
+                <div class="col-12 md:col-6">
+                  <label for="sabor" class="form-label">Sabor</label>
+                  <select class="form-control" id="sabor" name="sabor" required>
+                    <option value="" selected disabled>Elige un sabor</option>
+                    <option>Chocolate</option>
+                    <option>Tres leches</option>
+                    <option>Selva negra</option>
+                    <option>Vainilla con fresas</option>
+                    <option>Red velvet</option>
+                  </select>
+                </div>
+                <div class="col-12 md:col-6">
+                  <label for="porciones" class="form-label">Tamaño</label>
+                  <select class="form-control" id="porciones" name="porciones" required>
+                    <option value="" selected disabled>Elige un tamaño</option>
+                    <option value="12">Mediana · 12 porciones</option>
+                    <option value="20">Grande · 20 porciones</option>
+                    <option value="30">Fiesta · 30 porciones</option>
+                  </select>
+                </div>
+                <div class="col-12 md:col-6">
+                  <label for="fecha" class="form-label">Fecha de entrega</label>
+                  <input class="form-control" type="date" id="fecha" name="fecha" required>
+                </div>
+                <div class="col-12 md:col-6">
+                  <label for="dedicatoria" class="form-label">Dedicatoria (opcional)</label>
+                  <input class="form-control" id="dedicatoria" name="dedicatoria" maxlength="40" placeholder="¡Feliz cumpleaños, Ana!">
+                </div>
+                <div class="col-12">
+                  <label for="detalles" class="form-label">Detalles (opcional)</label>
+                  <textarea class="form-control" id="detalles" name="detalles" rows="3" maxlength="300" placeholder="Colores, temática, decoración…"></textarea>
+                </div>
+              </div>
+              <div class="mt-5" id="alertaPedido" aria-live="polite"></div>
+              <button class="btn-solid theme-primary btn-lg boton-capsula w-100 mt-4" type="submit">Solicitar cotización</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== NOSOTROS ===================== -->
+    <section class="seccion" id="nosotros">
+      <div class="container">
+        <div class="row g-4 row-cols-1 md:row-cols-3">
+          <div class="col"><div class="dato vidrio"><strong>Desde 2010</strong><span>Recetas de familia, horneadas cada día.</span></div></div>
+          <div class="col"><div class="dato vidrio"><strong>Ingredientes reales</strong><span>Mantequilla, huevos frescos y fruta de estación.</span></div></div>
+          <div class="col"><div class="dato vidrio"><strong>Av. Giráldez 245</strong><span>Huancayo · Lunes a sábado de 7:00 a 21:00.</span></div></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===================== PIE: integrantes ===================== -->
+  <footer class="pie">
+    <div class="container">
+      <div class="pie-vidrio vidrio">
+        <div class="row g-5 align-items-start">
+          <div class="col-12 md:col-5">
+            <p class="marca mb-2"><img src="img/favicon.svg" alt="" width="26" height="26"> <span>Pastelería Delicia</span></p>
+            <p class="texto-suave mb-0">Tienda en línea con Bootstrap 6 · Diseño Liquid Glass.<br>Proyecto académico — Universidad Continental.</p>
+          </div>
+          <div class="col-12 md:col-4">
+            <h3 class="pie-titulo">Integrantes</h3>
+            <ul class="integrantes">
+              <li>Anghelina Porras Torres</li>
+              <li>Jean Piero Huamani Rodriguez</li>
+            </ul>
+          </div>
+          <div class="col-12 md:col-3">
+            <h3 class="pie-titulo">Contacto</h3>
+            <p class="texto-suave mb-0">WhatsApp 964 000 000<br>hola@delicia.pe</p>
+          </div>
+        </div>
+        <p class="copy">© <span id="anio">2026</span> Pastelería Delicia. Fotos: Unsplash.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===================== CARRITO: Drawer + List group ===================== -->
+  <dialog class="drawer drawer-end drawer-translucent vidrio-panel carrito" id="carrito" aria-labelledby="carritoTitulo">
+    <div class="drawer-header">
+      <h5 class="drawer-title" id="carritoTitulo">Tu carrito</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="drawer" aria-label="Cerrar carrito"></button>
+    </div>
+    <div class="drawer-body">
+      <ul class="list-group" id="listaCarrito"></ul>
+
+      <div class="resumen">
+        <div class="fila"><span>Subtotal</span><span id="subtotal">S/ 0.00</span></div>
+        <div class="fila descuento" id="filaDescuento" hidden><span>Descuento 10 %</span><span id="descuento">− S/ 0.00</span></div>
+        <div class="fila total"><span>Total</span><strong id="total">S/ 0.00</strong></div>
+        <div class="progreso" id="progreso" aria-hidden="true"><span id="barraProgreso"></span></div>
+        <p class="mensaje-descuento" id="mensajeDescuento"></p>
+      </div>
+
+      <div class="d-grid gap-2">
+        <button class="btn-solid theme-primary btn-lg boton-capsula" type="button" id="finalizar">Finalizar pedido</button>
+        <button class="btn-text theme-danger" type="button" id="vaciar">Vaciar carrito</button>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- ===================== CONFIRMACIÓN: Dialog ===================== -->
+  <dialog class="dialog vidrio-panel" id="confirmar" aria-labelledby="confirmarTitulo">
+    <div class="dialog-header">
+      <h2 class="dialog-title" id="confirmarTitulo">Confirma tu pedido</h2>
+      <button type="button" class="btn-close" data-bs-dismiss="dialog" aria-label="Cerrar"></button>
+    </div>
+    <div class="dialog-body">
+      <ul class="list-group list-group-flush" id="resumenConfirmar"></ul>
+      <p class="fila total mt-4 mb-0"><span>Total a pagar</span><strong id="totalConfirmar"></strong></p>
+    </div>
+    <div class="dialog-footer">
+      <button type="button" class="btn-subtle theme-secondary boton-capsula" data-bs-dismiss="dialog">Seguir comprando</button>
+      <button type="button" class="btn-solid theme-primary boton-capsula" id="btnConfirmar">Confirmar</button>
+    </div>
+  </dialog>
+
+  <!-- ===================== AVISO: Toast ===================== -->
+  <div class="toast-container position-fixed bottom-0 end-0 p-4">
+    <div class="toast toast-translucent vidrio-panel" id="aviso" role="status" aria-live="polite" aria-atomic="true" data-bs-delay="2600">
+      <div class="toast-header">
+        <img src="img/favicon.svg" alt="" width="20" height="20" class="me-2">
+        <strong class="me-auto">Pastelería Delicia</strong>
+        <small>ahora</small>
+        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Cerrar"></button>
+      </div>
+      <div class="toast-body" id="avisoTexto">Producto agregado al carrito.</div>
+    </div>
+  </div>
+
+  <!-- JS de Bootstrap 6: es un módulo, type="module" es obligatorio -->
+  <script type="module"
+          src="https://cdn.jsdelivr.net/npm/bootstrap@6.0.0-alpha.1/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-1a/pXj49ZQ1aHEmrJ+gMw1otqoVsYwlEnlD8mIfY2TV03r20Y0CN7uqx1tQogjPL"
+          crossorigin="anonymous"></script>
+  <!-- Lógica de la tienda -->
+  <script type="module" src="js/tienda.js"></script>
+</body>
+</html>
